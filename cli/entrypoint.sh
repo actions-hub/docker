@@ -19,8 +19,8 @@ else
     IMAGE_TAG=latest
 fi
 
-echo ::set-output name=IMAGE_TAG::${IMAGE_TAG}
-echo ::set-output name=IMAGE_NAME::${IMAGE_NAME}
+echo ::set-env name=IMAGE_TAG::${IMAGE_TAG}
+echo ::set-env name=IMAGE_NAME::${IMAGE_NAME}
 
 echo ::add-path::/usr/local/bin/docker
 
