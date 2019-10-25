@@ -84,13 +84,13 @@ jobs:
 
       - name: Build :tag
         if: success()
-        run: docker build -t docker.pkg.github.com/${{ github.repository }}/app:${{ IMAGE_TAG }} .
+        run: docker build -t docker.pkg.github.com/${{ github.repository }}/app:${IMAGE_TAG} .
 
       - name: Push to docker hub :tag
         if: success()
         uses: actions-hub/docker/cli@master
         with:
-          args: push docker.pkg.github.com/${{ github.repository }}:${{ IMAGE_TAG }}
+          args: push docker.pkg.github.com/${{ github.repository }}:${IMAGE_TAG}
 ```
 
 ## Licence
