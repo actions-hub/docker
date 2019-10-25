@@ -25,8 +25,8 @@ if [[ ! -z "${DOCKER_USERNAME}" && ! -z "${DOCKER_PASSWORD}" ]]; then
         IMAGE_TAG=$(echo $IMAGE_TAG | sed -e "s#^v##")
     fi
 
-    echo ::set-output name=IMAGE_TAG::${IMAGE_TAG}
-    echo ::set-output name=IMAGE_NAME::${IMAGE_NAME}
+    echo ::set-env name=IMAGE_TAG::${IMAGE_TAG}
+    echo ::set-env name=IMAGE_NAME::${IMAGE_NAME}
 else
     echo "::error::Not authorized. Please check if DOCKER_USERNAME and DOCKER_PASSWORD provided. Exiting...."
     exit 1
