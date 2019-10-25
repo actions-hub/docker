@@ -23,6 +23,10 @@ if [[ ! -z "${DOCKER_USERNAME}" && ! -z "${DOCKER_PASSWORD}" ]]; then
         IMAGE_TAG=${GITHUB_REF#*/}
         IMAGE_TAG=${IMAGE_TAG#*/}
         IMAGE_TAG=$(echo $IMAGE_TAG | sed -e "s#^v##")
+
+        if [ "$IMAGE_TAG" == "master" ]; then
+            IMAGE_TAG=latest
+        fi
     fi
 
     echo ::set-env name=IMAGE_TAG::${IMAGE_TAG}
