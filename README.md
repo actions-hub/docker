@@ -93,5 +93,41 @@ jobs:
           args: push docker.pkg.github.com/${{ github.repository }}:${IMAGE_TAG}
 ```
 
+### Universal
+```bash
+name: Deploy to docker hub
+
+on:
+   push:
+     branches:    
+      - master
+     tags:
+       - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Login to docker hub
+        if: success()
+        uses: actions-hub/docker/login@master
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build image
+        if: success()
+        run: docker build -t ${GITHUB_REPOSITORY}:${IMAGE_TAG} .
+
+      - name: Push to docker registry
+        if: success()
+        uses: actions-hub/docker/cli@master
+        with:
+          args: push ${GITHUB_REPOSITORY}:${IMAGE_TAG}
+```
+
 ## Licence
 [MIT License](https://github.com/actions-hub/docker/blob/master/LICENSE)
