@@ -15,6 +15,10 @@ if [[ ! -z "${IMAGE_TAG}" ]]; then
     IMAGE_TAG=${GITHUB_REF#*/}
     IMAGE_TAG=${IMAGE_TAG#*/}
     IMAGE_TAG=$(echo $IMAGE_TAG | sed -e "s#^v##")
+    
+    if [ "$IMAGE_TAG" == "master" ]; then
+        IMAGE_TAG=latest
+    fi
 else
     IMAGE_TAG=latest
 fi
