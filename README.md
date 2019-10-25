@@ -16,7 +16,7 @@ GitHub Action with docker cli.
   run: docker build -t ${GITHUB_REPOSITORY}:latest .
 
 - name: Push to docker hub :latest
-  uses: actions-hub/docker/cli@master
+  uses: actions-hub/docker@master
   with:
     args: push ${GITHUB_REPOSITORY}:latest
 ```
@@ -55,7 +55,7 @@ jobs:
         
       - name: Push to docker hub :latest
         if: success()
-        uses: actions-hub/docker/cli@master
+        uses: actions-hub/docker@master
         with:
           args: push docker.pkg.github.com/${{ github.repository }}:latest
 ```
@@ -88,7 +88,7 @@ jobs:
 
       - name: Push to docker hub :tag
         if: success()
-        uses: actions-hub/docker/cli@master
+        uses: actions-hub/docker@master
         with:
           args: push docker.pkg.github.com/${{ github.repository }}:${IMAGE_TAG}
 ```
@@ -124,7 +124,7 @@ jobs:
 
       - name: Push to docker registry
         if: success()
-        uses: actions-hub/docker/cli@master
+        uses: actions-hub/docker@master
         with:
           args: push ${GITHUB_REPOSITORY}:${IMAGE_TAG}
 ```
