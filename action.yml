@@ -1,0 +1,25 @@
+name: 'Docker Action'
+description: 'GitHub Action with docker cli'
+author: 'Serhiy Mytrovtsiy <mitrovtsiy@ukr.net>'
+branding:
+  icon: 'box'
+  color: 'blue'
+inputs:
+  DOCKER_IMAGE:
+    description: 'Docker image (if not the same as repo)'
+  DOCKER_TAG:
+    description: 'Docker tag (if want to specify tag)'
+  DOCKER_USERNAME:
+    description: 'Docker registry username'
+  DOCKER_PASSWORD:
+    description: 'Docker registry password'
+  DOCKER_REGISTRY_URL:
+    description: 'Docker registry url'
+outputs:
+  IMAGE_NAME:
+    description: 'Image name'
+  IMAGE_TAG:
+    description: 'Image tag'
+runs:
+  using: 'docker'
+  image: './cli/Dockerfile'
