@@ -25,8 +25,8 @@ GitHub Action with docker cli.
 
 This repository contains 2 actions:  
 
-- [login](https://github.com/actions-hub/docker/login)
-- [cli](https://github.com/actions-hub/docker/cli)
+- [login](https://github.com/actions-hub/docker/tree/master/login)
+- [cli](https://github.com/actions-hub/docker/tree/master/cli)
 
 ## Example
 
