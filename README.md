@@ -49,7 +49,7 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           DOCKER_REGISTRY_URL: docker.pkg.github.com
 
-      - name: Build :lastest
+      - name: Build :latest
         if: success()
         run: docker build -t docker.pkg.github.com/${{ github.repository }}/app:latest .
         
