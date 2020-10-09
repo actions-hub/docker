@@ -23,9 +23,9 @@ if [[ -z "${IMAGE_TAG}" ]]; then
     fi
 fi
 
-echo ::set-env name=IMAGE_TAG::${IMAGE_TAG}
-echo ::set-env name=IMAGE_NAME::${IMAGE_NAME}
+echo "IMAGE_TAG=${IMAGE_TAG}" >> $GITHUB_ENV
+echo "IMAGE_NAME=${IMAGE_NAME}" >> $GITHUB_ENV
 
-echo ::add-path::/usr/local/bin/docker
+echo "/usr/local/bin/docker" >> $GITHUB_PATH
 
 sh -c "docker $*"
