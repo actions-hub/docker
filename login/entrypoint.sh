@@ -29,11 +29,11 @@ if [[ ! -z "${DOCKER_USERNAME}" && ! -z "${DOCKER_PASSWORD}" ]]; then
         fi
     fi
 
-    echo ::set-env name=IMAGE_TAG::${IMAGE_TAG}
-    echo ::set-env name=IMAGE_NAME::${IMAGE_NAME}
+    echo "IMAGE_TAG=${IMAGE_TAG}" >> $GITHUB_ENV
+    echo "IMAGE_NAME=${IMAGE_NAME}" >> $GITHUB_ENV
 else
     echo "::error::Not authorized. Please check if DOCKER_USERNAME and DOCKER_PASSWORD provided. Exiting...."
     exit 1
 fi
 
-echo ::add-path::/usr/local/bin/docker
+echo "/usr/local/bin/docker" >> $GITHUB_PATH
