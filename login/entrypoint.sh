@@ -24,7 +24,7 @@ if [[ ! -z "${DOCKER_USERNAME}" && ! -z "${DOCKER_PASSWORD}" ]]; then
         IMAGE_TAG=${IMAGE_TAG#*/}
         IMAGE_TAG=$(echo $IMAGE_TAG | sed -e "s#^v##")
 
-        if [ "$IMAGE_TAG" == "master" ]; then
+        if [[ "$IMAGE_TAG" == "master" || "$IMAGE_TAG" == "main" ]]; then
             IMAGE_TAG=latest
         fi
     fi
