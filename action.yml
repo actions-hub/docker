@@ -7,14 +7,10 @@ branding:
 inputs:
   NAME:
     description: 'Docker image (if not the same as repo)'
+    required: false
   TAG:
     description: 'Docker tag (if want to specify tag)'
-  DOCKER_USERNAME:
-    description: 'Docker username'
-  DOCKER_PASSWORD:
-    description: 'Docker password'
-  DOCKER_REGISTRY_URL:
-    description: 'Docker registry url'
+    required: false
 runs:
   using: 'docker'
   image: './cli/Dockerfile'

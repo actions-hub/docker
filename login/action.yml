@@ -1,0 +1,19 @@
+name: 'Docker Login'
+description: 'GitHub Action to login to a docker repository'
+author: 'Serhiy Mytrovtsiy <mitrovtsiy@ukr.net>'
+branding:
+  icon: 'box'
+  color: 'blue'
+inputs:
+  DOCKER_USERNAME:
+    description: 'Docker username'
+    required: true
+  DOCKER_PASSWORD:
+    description: 'Docker password'
+    required: true
+  DOCKER_REGISTRY_URL:
+    description: 'Docker registry url'
+    required: false
+runs:
+  using: 'docker'
+  image: '.'
