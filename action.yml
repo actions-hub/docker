@@ -15,6 +15,8 @@ inputs:
     description: 'Docker password'
   DOCKER_REGISTRY_URL:
     description: 'Docker registry url'
+  SKIP_LOGIN:
+    description: 'Skip login'
 runs:
   using: 'docker'
   image: './cli/Dockerfile'
