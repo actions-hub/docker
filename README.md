@@ -129,5 +129,30 @@ jobs:
           args: push ${GITHUB_REPOSITORY}:${IMAGE_TAG}
 ```
 
+### CLI
+
+```bash
+name: Run docker CLI
+
+on:
+   push:
+     branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Use Docker
+        uses: actions-hub/docker/cli@master
+        env:
+          SKIP_LOGIN: true
+
+      - run: docker --version
+```
+
 ## Licence
 [MIT License](https://github.com/actions-hub/docker/blob/master/LICENSE)

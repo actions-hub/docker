@@ -2,7 +2,7 @@
 
 set -e
 
-if [ ! -e "$HOME/.docker/config.json" ]; then
+if [ ! -e "$HOME/.docker/config.json" ] && [ -z "${SKIP_LOGIN}" ]; then
     echo "::error::Not authorized. Please use login action to authorize to registry. Exiting...."
     exit 1
 fi
